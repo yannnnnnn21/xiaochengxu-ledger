@@ -1,0 +1,10 @@
+# WeChat DevTools local overrides
+project.private.config.json
+
+# Dependencies and generated files
+node_modules/
+miniprogram_npm/
+
+# System files
+.DS_Store
+Thumbs.db
