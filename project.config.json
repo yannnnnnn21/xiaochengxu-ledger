@@ -2,7 +2,20 @@
   "compileType": "miniprogram",
   "libVersion": "trial",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "backend"
+      },
+      {
+        "type": "folder",
+        "value": "images/tp"
+      },
+      {
+        "type": "folder",
+        "value": ".idea"
+      }
+    ],
     "include": []
   },
   "setting": {

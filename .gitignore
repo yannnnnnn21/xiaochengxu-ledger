@@ -8,3 +8,4 @@ miniprogram_npm/
 # System files
 .DS_Store
 Thumbs.db
+.idea/

@@ -1,12 +1,18 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/add/add",
+    "pages/bills/bills",
+    "pages/profile/profile",
+    "pages/analysis/analysis"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarTitleText": "暖萌学生记账本",
+    "navigationBarBackgroundColor": "#f8f0e8",
+    "backgroundColor": "#f8f0e8",
+    "backgroundTextStyle": "dark",
+    "navigationStyle": "custom"
   },
   "style": "v2",
   "componentFramework": "glass-easel",
