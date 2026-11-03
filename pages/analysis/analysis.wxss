@@ -1,0 +1,480 @@
+.analysis-nav {
+  padding-right: 190rpx;
+}
+
+.analysis-nav .nav-side.right {
+  width: auto;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.analysis-month {
+  height: 52rpx;
+  padding: 0 17rpx;
+  display: flex;
+  align-items: center;
+  color: #715648;
+  font-size: 20rpx;
+  white-space: nowrap;
+  border-radius: 26rpx;
+  background: rgba(255, 253, 250, 0.9);
+}
+
+.analysis-content {
+  padding-top: 18rpx;
+  padding-bottom: calc(52rpx + env(safe-area-inset-bottom));
+}
+
+.analysis-hero {
+  padding: 34rpx 30rpx 28rpx;
+  overflow: hidden;
+  border-radius: 38rpx;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.56), transparent 34%),
+    linear-gradient(135deg, #f4d875, #efc666);
+  box-shadow: 0 12rpx 28rpx rgba(164, 126, 62, 0.16);
+}
+
+.analysis-hero-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.analysis-eyebrow {
+  color: #94794f;
+  font-size: 23rpx;
+}
+
+.analysis-total {
+  margin-top: 13rpx;
+  display: flex;
+  align-items: baseline;
+  color: #5a4034;
+  font-family: Georgia, serif;
+  font-size: 66rpx;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.analysis-currency {
+  margin-right: 8rpx;
+  font-size: 38rpx;
+}
+
+.budget-ring {
+  width: 136rpx;
+  height: 136rpx;
+  padding: 9rpx;
+  border: 5rpx solid rgba(140, 106, 83, 0.55);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.budget-ring-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f8e09d;
+}
+
+.budget-percent {
+  color: #5d4338;
+  font-family: Georgia, serif;
+  font-size: 31rpx;
+  font-weight: 700;
+}
+
+.budget-ring-label {
+  margin-top: 3rpx;
+  color: #9a7d59;
+  font-size: 17rpx;
+}
+
+.budget-row {
+  margin-top: 29rpx;
+  padding-top: 23rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx dashed rgba(106, 76, 50, 0.2);
+}
+
+.budget-label {
+  display: block;
+  color: #94784f;
+  font-size: 20rpx;
+}
+
+.budget-value {
+  display: block;
+  margin-top: 5rpx;
+  color: #5b4136;
+  font-family: Georgia, serif;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.budget-hint {
+  max-width: 330rpx;
+  color: rgba(106, 77, 48, 0.65);
+  font-size: 18rpx;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.metric-grid {
+  margin: 22rpx 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14rpx;
+}
+
+.metric-card {
+  padding: 22rpx 10rpx 19rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 253, 250, 0.94);
+  border-radius: 26rpx;
+  box-shadow: 0 7rpx 18rpx rgba(139, 96, 68, 0.06);
+}
+
+.metric-icon {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7d6047;
+  font-size: 18rpx;
+  border-radius: 12rpx;
+}
+
+.metric-calendar {
+  border: 3rpx solid #7d6047;
+  background: #f6e8b9;
+}
+
+.metric-calendar::before {
+  content: "";
+  width: 20rpx;
+  height: 3rpx;
+  background: #7d6047;
+  transform: translateY(-5rpx);
+}
+
+.metric-days {
+  background: #f9e3dd;
+}
+
+.metric-category {
+  background: #e2edf4;
+}
+
+.metric-value {
+  margin-top: 12rpx;
+  color: #5c4236;
+  font-family: Georgia, serif;
+  font-size: 31rpx;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label {
+  margin-top: 5rpx;
+  color: #a0897c;
+  font-size: 19rpx;
+}
+
+.analysis-card {
+  margin-top: 22rpx;
+  padding: 28rpx 26rpx;
+  background: rgba(255, 253, 250, 0.95);
+  border-radius: 32rpx;
+  box-shadow: 0 8rpx 22rpx rgba(139, 96, 68, 0.06);
+}
+
+.analysis-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.analysis-subtitle {
+  display: block;
+  color: #9e8779;
+  font-size: 20rpx;
+}
+
+.analysis-title {
+  display: block;
+  margin-top: 5rpx;
+  color: #5d4438;
+  font-size: 31rpx;
+  font-weight: 700;
+}
+
+.analysis-note {
+  color: #ad978b;
+  font-size: 18rpx;
+}
+
+.trend-chart {
+  height: 285rpx;
+  margin-top: 28rpx;
+  padding: 0 4rpx;
+  display: flex;
+  align-items: flex-end;
+  gap: 10rpx;
+}
+
+.trend-column {
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trend-amount {
+  height: 30rpx;
+  overflow: hidden;
+  color: #a08778;
+  font-family: Georgia, serif;
+  font-size: 16rpx;
+  white-space: nowrap;
+}
+
+.trend-track {
+  flex: 1;
+  width: 36rpx;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 18rpx;
+  background: #f4ebe3;
+}
+
+.trend-bar {
+  width: 100%;
+  min-height: 6rpx;
+  border-radius: 18rpx;
+  background: linear-gradient(180deg, #f0ca68, #e9a676);
+}
+
+.trend-bar.today {
+  background: linear-gradient(180deg, #ef9b70, #d87c6e);
+}
+
+.trend-label {
+  height: 35rpx;
+  padding-top: 9rpx;
+  color: #9c8679;
+  font-size: 17rpx;
+  white-space: nowrap;
+}
+
+.trend-label.today-text {
+  color: #b7695f;
+  font-weight: 700;
+}
+
+.category-analysis {
+  padding-bottom: 24rpx;
+}
+
+.analysis-category-row {
+  position: relative;
+  margin-top: 25rpx;
+  padding-right: 72rpx;
+}
+
+.analysis-category-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.analysis-category-name {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  color: #60473a;
+  font-size: 23rpx;
+  font-weight: 600;
+}
+
+.analysis-dot {
+  width: 17rpx;
+  height: 17rpx;
+  border-radius: 50%;
+}
+
+.analysis-category-amount {
+  color: #785d4d;
+  font-family: Georgia, serif;
+  font-size: 22rpx;
+  font-variant-numeric: tabular-nums;
+}
+
+.analysis-progress {
+  height: 12rpx;
+  margin-top: 13rpx;
+  overflow: hidden;
+  border-radius: 8rpx;
+  background: #eee3da;
+}
+
+.analysis-progress-value {
+  height: 100%;
+  min-width: 8rpx;
+  border-radius: 8rpx;
+}
+
+.analysis-category-percent {
+  position: absolute;
+  top: 4rpx;
+  right: 0;
+  color: #a0897b;
+  font-family: Georgia, serif;
+  font-size: 19rpx;
+}
+
+.analysis-empty {
+  padding: 40rpx 0 20rpx;
+  color: #a58c7f;
+  font-size: 22rpx;
+  text-align: center;
+}
+
+.insight-grid {
+  margin-top: 22rpx;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+}
+
+.insight-card {
+  min-width: 0;
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  border-radius: 28rpx;
+}
+
+.top-category-card {
+  background: #fae7df;
+}
+
+.largest-card {
+  background: #e3eee3;
+}
+
+.insight-label {
+  color: #987f71;
+  font-size: 19rpx;
+}
+
+.insight-name {
+  margin-top: 10rpx;
+  color: #5b4135;
+  font-size: 29rpx;
+  font-weight: 700;
+}
+
+.insight-value {
+  margin-top: 10rpx;
+  color: #5d4337;
+  font-family: Georgia, serif;
+  font-size: 29rpx;
+  font-weight: 700;
+}
+
+.insight-detail {
+  margin-top: 7rpx;
+  overflow: hidden;
+  color: #9b8275;
+  font-size: 18rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.recent-expenses {
+  margin-bottom: 18rpx;
+}
+
+.expense-row {
+  margin-top: 20rpx;
+  padding-top: 19rpx;
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #efe4db;
+}
+
+.expense-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20rpx;
+  font-size: 31rpx;
+}
+
+.tone-peach {
+  background: #fae3df;
+}
+
+.tone-blue {
+  background: #e2edf4;
+}
+
+.tone-sage {
+  background: #dfeade;
+}
+
+.tone-lilac {
+  background: #eadff1;
+}
+
+.tone-yellow {
+  background: #f9eab9;
+}
+
+.expense-copy {
+  flex: 1;
+  min-width: 0;
+  margin-left: 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-category {
+  color: #60463a;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.expense-note {
+  margin-top: 5rpx;
+  overflow: hidden;
+  color: #a28b7e;
+  font-size: 18rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.expense-amount {
+  margin-left: 14rpx;
+  color: #b7645f;
+  font-family: Georgia, serif;
+  font-size: 23rpx;
+  font-weight: 700;
+  white-space: nowrap;
+}

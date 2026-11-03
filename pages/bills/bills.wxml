@@ -1,0 +1,98 @@
+<view class="page-shell">
+  <scroll-view class="page-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view style="padding-top: {{statusBarHeight}}px;">
+      <view class="top-nav bills-nav">
+        <text class="nav-title">全部账单</text>
+        <view class="nav-side right">
+          <picker mode="date" fields="month" value="{{monthKey}}" bindchange="onMonthChange">
+            <view class="month-picker">
+              <text>{{monthLabel}}</text>
+              <view class="picker-chevron"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="content bills-content">
+        <view class="month-summary">
+          <view class="summary-heart">♡</view>
+          <view class="summary-item">
+            <text class="summary-label">本月支出</text>
+            <text class="summary-value">¥ {{expenseText}}</text>
+          </view>
+          <view class="summary-divider"></view>
+          <view class="summary-item align-right">
+            <text class="summary-label">本月收入</text>
+            <text class="summary-value">¥ {{incomeText}}</text>
+          </view>
+          <view class="summary-coin">¥</view>
+        </view>
+
+        <view class="list-caption">
+          <text>共 {{count}} 笔 · 按时间倒序</text>
+          <button class="quick-add" bindtap="openAdd">＋ 记一笔</button>
+        </view>
+
+        <view
+          class="bill-card"
+          wx:for="{{bills}}"
+          wx:key="id"
+        >
+          <view class="bill-main">
+            <view class="bill-icon tone-{{item.tone}}">
+              <text>{{item.icon}}</text>
+            </view>
+            <view class="bill-copy">
+              <view class="bill-title-line">
+                <text class="bill-category">{{item.category}}</text>
+                <text class="bill-note">{{item.note}}</text>
+              </view>
+              <text class="bill-date">{{item.dateText}} · {{item.timeText}}</text>
+            </view>
+            <text class="bill-amount {{item.type === 'income' ? 'income-text' : ''}}">
+              {{item.amountPrefix}}¥ {{item.amountText}}
+            </text>
+          </view>
+          <view class="bill-divider"></view>
+          <view class="bill-actions">
+            <view class="action-pair">
+              <button
+                class="action-button edit-button"
+                data-id="{{item.id}}"
+                bindtap="editBill"
+                aria-label="编辑"
+              >
+                <image
+                  class="action-icon"
+                  src="/images/icons/edit.png"
+                  mode="aspectFit"
+                ></image>
+              </button>
+              <button
+                class="action-button delete-button"
+                data-id="{{item.id}}"
+                bindtap="removeBill"
+                aria-label="删除"
+              >
+                <image
+                  class="action-icon"
+                  src="/images/icons/delete.png"
+                  mode="aspectFit"
+                ></image>
+              </button>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!bills.length}}" class="empty-card soft-card">
+          <view class="empty-bear"><view class="empty-bear-face"></view></view>
+          <text class="empty-title">这个月还没有账单</text>
+          <text class="empty-copy">点下面的按钮，记下你的第一笔收支</text>
+          <button class="empty-add" bindtap="openAdd">去记一笔</button>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <tab-bar active="bills"></tab-bar>
+</view>

@@ -1,0 +1,58 @@
+<view class="tab-bar">
+  <view
+    class="tab-item {{active === 'home' ? 'is-active' : ''}}"
+    data-page="home"
+    data-url="/pages/index/index"
+    bindtap="switchPage"
+  >
+    <view class="active-dash"></view>
+    <view class="line-icon icon-home">
+      <view class="home-roof"></view>
+      <view class="home-body"></view>
+    </view>
+    <text class="tab-label">首页</text>
+  </view>
+
+  <view
+    class="tab-item add-tab {{active === 'add' ? 'is-active' : ''}}"
+    data-page="add"
+    data-url="/pages/add/add"
+    bindtap="switchPage"
+  >
+    <view class="active-dash"></view>
+    <view class="line-icon icon-add">
+      <view class="plus-horizontal"></view>
+      <view class="plus-vertical"></view>
+    </view>
+    <text class="tab-label">记一笔</text>
+  </view>
+
+  <view
+    class="tab-item bill-tab {{active === 'bills' ? 'is-active' : ''}}"
+    data-page="bills"
+    data-url="/pages/bills/bills"
+    bindtap="switchPage"
+  >
+    <view class="active-dash"></view>
+    <view class="line-icon icon-receipt">
+      <view class="receipt-line line-one"></view>
+      <view class="receipt-line line-two"></view>
+      <view class="receipt-line line-three"></view>
+    </view>
+    <text class="tab-label">账单</text>
+  </view>
+
+  <view
+    class="tab-item {{active === 'profile' ? 'is-active' : ''}}"
+    data-page="profile"
+    data-url="/pages/profile/profile"
+    bindtap="switchPage"
+  >
+    <view class="active-dash"></view>
+    <view class="line-icon icon-user">
+      <view class="user-head"></view>
+      <view class="user-shoulder"></view>
+    </view>
+    <text class="tab-label">我的</text>
+  </view>
+</view>

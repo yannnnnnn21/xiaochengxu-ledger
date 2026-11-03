@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warmledger.backend.bill.mapper.LedgerBillMapper">
+
+    <resultMap id="LedgerBillResultMap"
+               type="com.warmledger.backend.bill.entity.LedgerBill">
+        <id property="id" column="id"/>
+        <result property="type" column="bill_type"/>
+        <result property="category" column="category"/>
+        <result property="amount" column="amount"/>
+        <result property="date" column="transaction_date"/>
+        <result property="time" column="transaction_time"/>
+        <result property="note" column="note"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+
+    <sql id="BillColumns">
+        id,
+        bill_type,
+        category,
+        amount,
+        transaction_date,
+        transaction_time,
+        note,
+        created_at,
+        updated_at,
+        deleted
+    </sql>
+
+    <select id="selectBillsPage"
+            resultMap="LedgerBillResultMap"
+            parameterType="map">
+        SELECT
+        <include refid="BillColumns"/>
+        FROM ledger_bill
+        WHERE deleted = 0
+          AND transaction_date &gt;= #{startDate}
+          AND transaction_date &lt; #{endDate}
+        <if test="type != null and type != ''">
+            AND bill_type = #{type}
+        </if>
+        <if test="category != null and category != ''">
+            AND category = #{category}
+        </if>
+        ORDER BY transaction_date DESC, transaction_time DESC, id DESC
+    </select>
+</mapper>
+

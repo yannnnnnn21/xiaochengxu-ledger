@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS ledger_bill;
+
+CREATE TABLE ledger_bill (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    bill_type VARCHAR(16) NOT NULL,
+    category VARCHAR(32) NOT NULL,
+    amount DECIMAL(12, 2) NOT NULL,
+    transaction_date DATE NOT NULL,
+    transaction_time TIME NOT NULL,
+    note VARCHAR(200) NOT NULL DEFAULT '',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    deleted TINYINT NOT NULL DEFAULT 0
+);
+

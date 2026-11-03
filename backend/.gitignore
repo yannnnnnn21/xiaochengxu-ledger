@@ -1,0 +1,10 @@
+target/
+.m2-cache/
+.maven-settings.xml
+src/main/resources/application-local.yml
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+

@@ -1,0 +1,97 @@
+<view class="page-shell">
+  <scroll-view class="page-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view style="padding-top: {{statusBarHeight}}px;">
+      <view class="top-nav add-nav">
+        <text class="nav-title">{{editing ? '编辑账单' : '记一笔'}}</text>
+        <view class="nav-side right">
+          <view class="pastry-doodle">🥐</view>
+        </view>
+      </view>
+
+      <view class="content add-content">
+        <view class="type-switch">
+          <button
+            class="type-option {{type === 'expense' ? 'active' : ''}}"
+            data-type="expense"
+            bindtap="changeType"
+          >支出</button>
+          <button
+            class="type-option {{type === 'income' ? 'active' : ''}}"
+            data-type="income"
+            bindtap="changeType"
+          >收入</button>
+        </view>
+
+        <view class="form-section">
+          <text class="form-label">金额</text>
+          <view class="amount-box">
+            <text class="amount-symbol">¥</text>
+            <input
+              class="amount-input"
+              type="digit"
+              maxlength="10"
+              value="{{amount}}"
+              placeholder="请输入金额"
+              placeholder-class="input-placeholder"
+              bindinput="onAmountInput"
+            />
+          </view>
+        </view>
+
+        <view class="form-section category-section">
+          <text class="form-label">选择分类</text>
+          <view class="category-row">
+            <button
+              class="category-option {{item.selected ? 'selected' : ''}}"
+              wx:for="{{categories}}"
+              wx:key="name"
+              data-category="{{item.name}}"
+              bindtap="selectCategory"
+            >
+              <view class="category-icon tone-{{item.tone}}">{{item.icon}}</view>
+              <text>{{item.name}}</text>
+            </button>
+          </view>
+        </view>
+
+        <view class="form-section">
+          <text class="form-label">日期</text>
+          <picker mode="date" value="{{date}}" bindchange="onDateChange">
+            <view class="date-box">
+              <view class="calendar-icon">
+                <view class="calendar-rings"></view>
+                <view class="calendar-day">20</view>
+              </view>
+              <text class="date-value">{{date}}</text>
+              <view class="calendar-small"></view>
+            </view>
+          </picker>
+        </view>
+
+        <view class="form-section">
+          <text class="form-label">备注</text>
+          <textarea
+            class="note-box"
+            maxlength="60"
+            value="{{note}}"
+            placeholder="添加备注（选填）"
+            placeholder-class="input-placeholder"
+            bindinput="onNoteInput"
+            auto-height="{{false}}"
+          ></textarea>
+        </view>
+
+        <view class="save-wrap">
+          <button
+            class="save-button"
+            loading="{{saving}}"
+            bindtap="saveBill"
+          >{{editing ? '保存修改' : '保存账单'}}</button>
+          <view class="coin-doodle">¥</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <tab-bar active="add"></tab-bar>
+</view>

@@ -1,0 +1,162 @@
+<view class="page-shell">
+  <scroll-view class="page-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view style="padding-top: {{statusBarHeight}}px;">
+      <view class="top-nav analysis-nav">
+        <view class="nav-side">
+          <button class="round-back" bindtap="goBack" aria-label="返回">
+            <view class="back-arrow"></view>
+          </button>
+        </view>
+        <text class="nav-title">消费分析</text>
+        <view class="nav-side right">
+          <view class="analysis-month">{{monthLabel}}</view>
+        </view>
+      </view>
+
+      <view class="content analysis-content">
+        <view class="analysis-hero">
+          <view class="analysis-hero-head">
+            <view>
+              <text class="analysis-eyebrow">本月花销</text>
+              <view class="analysis-total">
+                <text class="analysis-currency">¥</text>
+                <text>{{expenseText}}</text>
+              </view>
+            </view>
+            <view class="budget-ring">
+              <view class="budget-ring-inner">
+                <text class="budget-percent">{{budgetPercent}}%</text>
+                <text class="budget-ring-label">预算使用</text>
+              </view>
+            </view>
+          </view>
+
+          <view class="budget-row">
+            <view>
+              <text class="budget-label">{{budgetStatus}}</text>
+              <text class="budget-value">¥ {{remainingText}}</text>
+            </view>
+            <view class="budget-hint">合理规划，每一笔都花在喜欢的地方</view>
+          </view>
+        </view>
+
+        <view class="metric-grid">
+          <view class="metric-card">
+            <view class="metric-icon metric-calendar"></view>
+            <text class="metric-value">{{averageText}}</text>
+            <text class="metric-label">月内日均</text>
+          </view>
+          <view class="metric-card">
+            <view class="metric-icon metric-days">天</view>
+            <text class="metric-value">{{spendingDays}}</text>
+            <text class="metric-label">消费天数</text>
+          </view>
+          <view class="metric-card">
+            <view class="metric-icon metric-category">类</view>
+            <text class="metric-value">{{categories.length}}</text>
+            <text class="metric-label">消费分类</text>
+          </view>
+        </view>
+
+        <view class="analysis-card trend-card">
+          <view class="analysis-heading">
+            <view>
+              <text class="analysis-subtitle">最近 7 天</text>
+              <text class="analysis-title">每日花销趋势</text>
+            </view>
+            <text class="analysis-note">单位：元</text>
+          </view>
+          <view class="trend-chart">
+            <view
+              class="trend-column"
+              wx:for="{{trend}}"
+              wx:key="date"
+            >
+              <text class="trend-amount">{{item.amount ? item.amountText : ''}}</text>
+              <view class="trend-track">
+                <view
+                  class="trend-bar {{item.label === '今天' ? 'today' : ''}}"
+                  style="height: {{item.height}}%;"
+                ></view>
+              </view>
+              <text class="trend-label {{item.label === '今天' ? 'today-text' : ''}}">
+                {{item.label}}
+              </text>
+            </view>
+          </view>
+        </view>
+
+        <view class="analysis-card category-analysis">
+          <view class="analysis-heading">
+            <view>
+              <text class="analysis-subtitle">花销结构</text>
+              <text class="analysis-title">分类分布</text>
+            </view>
+          </view>
+
+          <view
+            class="analysis-category-row"
+            wx:for="{{categories}}"
+            wx:key="name"
+          >
+            <view class="analysis-category-head">
+              <view class="analysis-category-name">
+                <view class="analysis-dot" style="background: {{item.color}};"></view>
+                <text>{{item.name}}</text>
+              </view>
+              <text class="analysis-category-amount">¥ {{item.valueText}}</text>
+            </view>
+            <view class="analysis-progress">
+              <view
+                class="analysis-progress-value"
+                style="width: {{item.percent}}%; background: {{item.color}};"
+              ></view>
+            </view>
+            <text class="analysis-category-percent">{{item.percent}}%</text>
+          </view>
+
+          <view wx:if="{{!hasExpense}}" class="analysis-empty">
+            本月还没有支出，开始记下第一笔吧
+          </view>
+        </view>
+
+        <view class="insight-grid" wx:if="{{hasExpense}}">
+          <view class="insight-card top-category-card">
+            <text class="insight-label">花得最多</text>
+            <text class="insight-name">{{topCategory.name}}</text>
+            <text class="insight-value">¥ {{topCategory.valueText}}</text>
+            <text class="insight-detail">占本月支出 {{topCategory.percent}}%</text>
+          </view>
+          <view class="insight-card largest-card">
+            <text class="insight-label">单笔最高</text>
+            <text class="insight-name">{{largestExpense.category}}</text>
+            <text class="insight-value">¥ {{largestExpense.amountText}}</text>
+            <text class="insight-detail">{{largestExpense.note}}</text>
+          </view>
+        </view>
+
+        <view class="analysis-card recent-expenses" wx:if="{{hasExpense}}">
+          <view class="analysis-heading">
+            <view>
+              <text class="analysis-subtitle">最近记录</text>
+              <text class="analysis-title">近期消费</text>
+            </view>
+          </view>
+          <view
+            class="expense-row"
+            wx:for="{{recentExpenses}}"
+            wx:key="id"
+          >
+            <view class="expense-avatar tone-{{item.tone}}">{{item.icon}}</view>
+            <view class="expense-copy">
+              <text class="expense-category">{{item.category}}</text>
+              <text class="expense-note">{{item.note}}</text>
+            </view>
+            <text class="expense-amount">-¥ {{item.amountText}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

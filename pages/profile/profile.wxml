@@ -1,0 +1,92 @@
+<view class="page-shell">
+  <scroll-view class="page-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="profile-page" style="padding-top: {{statusBarHeight}}px;">
+      <view class="profile-hero">
+        <text class="spark spark-left">✦</text>
+        <text class="spark spark-right">✧</text>
+        <view class="portrait-halo">
+          <view class="portrait-bear">
+            <view class="portrait-ear left"></view>
+            <view class="portrait-ear right"></view>
+            <view class="portrait-head">
+              <view class="portrait-brow left"></view>
+              <view class="portrait-brow right"></view>
+              <view class="portrait-eye left"></view>
+              <view class="portrait-eye right"></view>
+              <view class="portrait-cheek left"></view>
+              <view class="portrait-cheek right"></view>
+              <view class="portrait-muzzle">
+                <view class="portrait-nose"></view>
+                <view class="portrait-mouth"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <text class="profile-name">我的账本</text>
+        <text class="profile-caption">{{monthLabel}} · 预算 ¥{{budgetText}}</text>
+      </view>
+
+      <view class="profile-content">
+        <button class="menu-card" bindtap="exportBills">
+          <view class="menu-icon icon-paper">
+            <view class="paper-fold"></view>
+            <view class="paper-line line-a"></view>
+            <view class="paper-line line-b"></view>
+          </view>
+          <view class="menu-copy">
+            <text class="menu-title">账单导出</text>
+          </view>
+          <view class="menu-arrow"></view>
+        </button>
+
+        <button class="menu-card" bindtap="editBudget">
+          <view class="menu-icon icon-ruler">
+            <view class="ruler-body"></view>
+          </view>
+          <view class="menu-copy">
+            <text class="menu-title">预算设置</text>
+          </view>
+          <view class="menu-arrow"></view>
+        </button>
+
+        <button class="menu-card" bindtap="switchTheme">
+          <view class="menu-icon icon-palette">
+            <view class="palette-hole hole-a"></view>
+            <view class="palette-hole hole-b"></view>
+            <view class="palette-hole hole-c"></view>
+          </view>
+          <view class="menu-copy">
+            <text class="menu-title">主题切换</text>
+          </view>
+          <view class="menu-arrow"></view>
+        </button>
+
+        <button class="menu-card" bindtap="openAnalysis">
+          <view class="menu-icon icon-analysis">
+            <view class="analysis-column column-one"></view>
+            <view class="analysis-column column-two"></view>
+            <view class="analysis-column column-three"></view>
+          </view>
+          <view class="menu-copy">
+            <text class="menu-title">消费分析</text>
+          </view>
+          <view class="menu-arrow"></view>
+        </button>
+
+        <view class="profile-actions">
+          <button class="outline-action" bindtap="clearMonth">清除本月记录</button>
+          <button class="primary-action" bindtap="openHelp">帮助反馈</button>
+        </view>
+
+      </view>
+    </view>
+  </scroll-view>
+
+  <canvas
+    id="billExportCanvas"
+    type="2d"
+    class="bill-export-canvas"
+  ></canvas>
+
+  <tab-bar active="profile"></tab-bar>
+</view>
